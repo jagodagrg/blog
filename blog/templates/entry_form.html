@@ -1,10 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="flash">
+    {% for mesg in get_flashed_messages() %}
+          <h4>{{ mesg }}</h4>
+    {% endfor %}
+</div>
 <h3>
    Dodaj nowy wpis
 </h3>
-
 <form action="" method="POST">
   {{form.hidden_tag()}}
    <div class="form-group">
@@ -17,9 +21,11 @@
    </div>
    <div class="form-check">
        {{ form.is_published(class_="form-check-input") }}
-       <label class="form-check-label" for="is_published">Wpis opublikowany</label>
+       <label class="form-check-label" for="is_published">Wpis dodany</label>
    </div>
    <button type="submit" class="btn btn-primary mt-5">Zapisz</button>
 </form>
-
+<div class="flash">
+    <h4><a href="/"> Powrót do strony głównej </a></h4>
+</div>
 {% endblock %}
