@@ -2,7 +2,7 @@
 
 {% block content %}
 <h3>
-  Zaloguj się
+  Log in
 </h3>
 
 {% if errors %}
@@ -20,7 +20,7 @@
        <div class="invalid-feedback">{{ errors.username|join(' ') }}</div>
    </div>
    <div class="form-group">
-       <label for="body">Hasło</label>
+       <label for="body">Password</label>
 
        {% if errors and errors.password %}
            {{ form.password(class_="form-control is-invalid") }}
@@ -29,9 +29,9 @@
        {% endif %}
        <div class="invalid-feedback">{{ errors.password|join(' ') }}</div>
    </div>
-   <button type="submit" class="btn btn-primary mt-5">Zaloguj</button>
+   <button type="submit" class="btn btn-primary mt-5">Log in</button>
 </form>
 <div class="flash">
-    <h4><a href="/"> Powrót do strony głównej </a></h4>
+    <h4><a href="/"> Back to homepage </a></h4>
 </div>
 {% endblock %}

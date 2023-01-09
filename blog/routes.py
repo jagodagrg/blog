@@ -33,7 +33,7 @@ def create_or_edit_entry(entry_id=None):
             if form.validate_on_submit():
                 form.populate_obj(entry)
                 db.session.commit()
-                flash("Zmiany we wpisie zapisane!")
+                flash("Changes saved!")
             else:
                 errors = form.errors
     else:
@@ -47,7 +47,7 @@ def create_or_edit_entry(entry_id=None):
                 )
                 db.session.add(entry)
                 db.session.commit()
-                flash("Nowy wpis zapisany!")
+                flash("New post saved!")
             else:
                 errors = form.errors
     return render_template("entry_form.html", form=form, errors=errors)
@@ -61,7 +61,7 @@ def delete_entry(entry_id):
     if request.method == "POST":
         db.session.delete(entry)
         db.session.commit()
-        flash('Wpis usunięty!')
+        flash("Post deleted!")
     return redirect(url_for("index"))
 
 
